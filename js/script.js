@@ -355,7 +355,6 @@ const rsg = {
         // 遍历
         parameters.forEach((param) => {
             if (encoder) param = encoder(param)
-            console.log(param)
             text = text.replaceAll(param, `<span class="highlighted-parameter">${param}</span>`)
         })
         return text
@@ -435,6 +434,7 @@ const rsg = {
 
     },
 
+    // 更新时的操作
     update: () => {
         rsg.updateListenerCommand()
         rsg.updateTabList()

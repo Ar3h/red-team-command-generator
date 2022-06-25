@@ -465,9 +465,8 @@ const msfconsoleCommands = withCommandType(
     [
         {
             "name": "Metasploit Listener",
-            "command": "# 开启Msf监听器\n" +
-                "# 这里会和msfvenom中的payload同步切换\n" +
-                "\n" +
+            "command": "# 开启Msf监听\n" +
+                "# 这里会和msfvenom中的Payload同步切换\n\n" +
                 "use exploit/multi/handler\n" +
                 "set payload {payload}\n" +
                 "set LPORT {port}\n" +

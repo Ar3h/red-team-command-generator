@@ -1,8 +1,10 @@
 # Red-Team-Command-Generator
 
-红队命令生成器，由https://github.com/0dayCTF/reverse-shell-generator项目改造而来。
+红队命令生成器，由https://github.com/0dayCTF/reverse-shell-generator 项目改造而来。
 
 输入固定的参数，可以方便的生成各种常用命令
+
+在线地址：https://redteamcmdgenerate.netlify.app/
 
 ![image-20220624212551255](img/image-20220624212551255.png)
 
